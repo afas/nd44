@@ -1,0 +1,12 @@
+<div class="notices">
+  <%= content_tag :h2, "Новости и объявления" %>
+
+  <% @notices.each do |notice| %>
+      <div class="notice">
+        <%= content_tag :h3, notice.title %>
+        <%= content_tag :p, notice.body %>
+      </div>
+  <% end %>
+
+  <div class="clear"></div>
+</div>

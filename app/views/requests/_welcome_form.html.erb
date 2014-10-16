@@ -1,0 +1,67 @@
+<%= form_for(@request) do |f| %>
+    <% if @request.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@request.errors.count, "error") %> prohibited this request from being saved:</h2>
+
+          <ul>
+            <% @request.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="left-column">
+      <div class="field">
+        <%= f.label :author %>
+
+        <%= f.text_field :author %>
+      </div>
+
+      <div class="field">
+        <%= f.label :address %>
+        <%= f.text_field :address %>
+      </div>
+    </div>
+
+    <div class="right-column">
+      <div class="field">
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+      </div>
+
+      <div class="field">
+        <%= f.label :rtype %>
+        <%= f.hidden_field :rtype %>
+
+        <div class="option-selector" id="request-type">
+          <div class="link">
+            <span>не выбрано</span>
+          </div>
+          <div class="request-type-options">
+            <span><%= f.label :rtype %></span>
+            <ul id="request-type-options">
+              <% RequestType.collection.each do |type| %>
+                  <li id="request-type-option-<%= type.code %>" parent="<%= "#{type.parent}" unless type.parent.nil? %>" class="<%= "second" unless type.parent.nil? %>"><%= type.name %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="clear"></div>
+
+    <div class="center-column">
+      <div class="field">
+        <%= f.label :body %>
+        <%= f.text_area :body %>
+      </div>
+    </div>
+
+
+    <div class="actions">
+      <%= f.submit "Отправить заявку *" %><br/>
+      * Ознакомлен и согласен с <a href="https://yadi.sk/i/C2HGCPYNZjHEK" target="_blank">порядком предоставления</a> личной информации.
+    </div>
+<% end %>

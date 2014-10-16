@@ -1,0 +1,37 @@
+<h1>Перечень МКД обслуживаемого жилищного фонда ООО «Наш
+  дом» <%= link_to '+', new_house_path if can?(:create, House) %></h1>
+<div class="static-content">
+  <%= render "layouts/houses_on_map" %>
+  <%= content_tag :h2, "Дома списком" %>
+
+  <table>
+    <thead>
+    <tr>
+      <th>Адрес дома</th>
+      <!--<th>Председатель</th>-->
+      <th>Информация</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @houses.each do |house| %>
+        <tr>
+          <td width="60%"><%= house.address %></td>
+          <!--<td width="30%"><%#= house.chairman %></td>-->
+          <td width="40%"><%= house.info %>
+            <% if can?(:manage, House) %>
+                <br/>
+                <%= link_to 'Изменить', edit_house_path(house) %>
+                / <%= link_to 'Удалить', house, method: :delete, data: {confirm: 'Вы уверены?'} %>
+                <%#= house.latitude.nil? %>
+            <% end %>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <ul>
+    <li>В 2013 году договоры управления с обслуживаемыми многоквартирными домами не расторгались.</li>
+    <li>В 2012 году договоры управления с обслуживаемыми многоквартирными домами не расторгались.</li>
+  </ul>
+</div>

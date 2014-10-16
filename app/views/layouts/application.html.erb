@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= t("site_title") %></title>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+<div class="content-container">
+  <header>
+    <div class="logo">
+      <%= link_to(t("site_name"), root_path) %><br/>
+      <%= content_tag :span, t("site_sub_name") %>
+    </div>
+    <div class="phone">
+      <%= content_tag :span, raw(t("phone")) %>
+    </div>
+  </header>
+
+  <%= render "layouts/main_menu" %>
+
+  <%= yield %>
+
+  <footer>
+    <div class="left">
+      <%= content_tag :span, t("copy") %>
+    </div>
+    <div class="right">
+      <%= content_tag :span, t("address") %><br/>
+      <%= content_tag :span, raw(t("phone")) %>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

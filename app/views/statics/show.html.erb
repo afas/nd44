@@ -1,0 +1,8 @@
+<p id="notice"><%= notice %></p>
+
+<%= content_tag :h1, @static.title %>
+<%= link_to 'Изменить', edit_static_path(@static) if can?(:edit, Static) %>
+
+<div class="static-content">
+  <%= raw @static.body %>
+</div>
