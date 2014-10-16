@@ -1,5 +1,5 @@
 <div class="notices">
-  <%= content_tag :h2, "Новости и объявления" %>
+  <h2>Новости и объявления <%= link_to '+', new_notice_path if can?(:create, Notice) %></h2>
 
   <% @notices.each do |notice| %>
       <div class="notice">

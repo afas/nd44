@@ -7,18 +7,19 @@
   <table>
     <thead>
     <tr>
+      <th>№п/п</th>
       <th>Адрес дома</th>
-      <!--<th>Председатель</th>-->
       <th>Информация</th>
     </tr>
     </thead>
 
     <tbody>
-    <% @houses.each do |house| %>
+    <% @houses.each_with_index do |house, i| %>
         <tr>
-          <td width="60%"><%= house.address %></td>
+          <td width="5%" class="house-number"><%= i+1 %></td>
+          <td width="60%" class="house-address"><%= house.address %></td>
           <!--<td width="30%"><%#= house.chairman %></td>-->
-          <td width="40%"><%= house.info %>
+          <td width="35%" class="house-info"><%= house.info %>
             <% if can?(:manage, House) %>
                 <br/>
                 <%= link_to 'Изменить', edit_house_path(house) %>
