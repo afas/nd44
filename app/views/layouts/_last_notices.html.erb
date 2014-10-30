@@ -4,7 +4,7 @@
   <% @notices.each do |notice| %>
       <div class="notice">
         <%= content_tag :h3, notice.title %>
-        <%= content_tag :p, notice.body %>
+        <%= raw notice.body %>
       </div>
   <% end %>
 
