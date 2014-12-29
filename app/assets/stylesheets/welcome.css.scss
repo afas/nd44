@@ -1,5 +1,5 @@
 .notices {
-  padding-bottom: 34px;
+//  padding-bottom: 34px;
   h2 {
     text-align: center;
     color: #000000;
@@ -9,9 +9,21 @@
   .notice {
     float: left;
     width: 430px;
+    padding-bottom: 25px;
 
     h3 {
       margin-top: 0;
+      a {
+        text-decoration: none;
+      }
+    }
+
+    span {
+      //      display: block;
+      //      text-align: right;
+      a {
+        color: #27b8e8;
+      }
     }
 
     &:nth-child(even) {
@@ -186,7 +198,6 @@
     text-align: center;
   }
 }
-
 
 form {
   .field input[type='text'], .field textarea {
