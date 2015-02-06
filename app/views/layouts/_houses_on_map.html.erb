@@ -51,7 +51,7 @@
             {
                 "lat": <%= house.latitude %>,
                 "lng": <%= house.longitude %>,
-                "infowindow": "Адрес: <%= house.address %><br/> Информация: <%= house.info %>"
+                "infowindow": "<div class='house-info-baloon'>Адрес: <%= house.address %><br/><%= house.info.html_safe %></div>"
             },
             <% end unless @houses.nil? %>
         ]);

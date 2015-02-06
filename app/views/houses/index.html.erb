@@ -17,14 +17,12 @@
     <% @houses.each_with_index do |house, i| %>
         <tr>
           <td width="5%" class="house-number"><%= i+1 %></td>
-          <td width="60%" class="house-address"><%= house.address %></td>
-          <!--<td width="30%"><%#= house.chairman %></td>-->
-          <td width="35%" class="house-info"><%= house.info %>
+          <td width="25%" class="house-address"><%= house.address %></td>
+          <td width="70%" class="house-info"><div class="scrollable-info"><%= house.info.html_safe %></div>
             <% if can?(:manage, House) %>
                 <br/>
                 <%= link_to 'Изменить', edit_house_path(house) %>
                 / <%= link_to 'Удалить', house, method: :delete, data: {confirm: 'Вы уверены?'} %>
-                <%#= house.latitude.nil? %>
             <% end %>
           </td>
         </tr>

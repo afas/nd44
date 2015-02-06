@@ -28,7 +28,7 @@ gem 'devise'
 
 gem 'cancan'
 
-gem 'proxylocal'
+gem 'roo', '1.13.2'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -10,3 +10,11 @@
 .house-address, .house-info {
   padding-left: 10px;
 }
+
+.house-info {
+  .scrollable-info {
+    height: 100px;
+    overflow: auto;
+    line-height: 20px;
+  }
+}

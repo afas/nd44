@@ -186,8 +186,14 @@ div {
   }
 
   #map {
-    height: 400px;
+    height: 450px;
     width: 900px;
+    .house-info-baloon {
+      height: 200px;
+      b {
+        font-weight: 600;
+      }
+    }
   }
 
   .static-content {
