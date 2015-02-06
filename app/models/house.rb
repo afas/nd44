@@ -1,3 +1,4 @@
+#encoding: utf-8
 class House < ActiveRecord::Base
   geocoded_by :address
   after_validation :geocode
