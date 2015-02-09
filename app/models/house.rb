@@ -40,6 +40,10 @@ class House < ActiveRecord::Base
   COLDWATERSERVICEPROVIDER = 31
   WASTEWATER = 32
   WASTEWATERSERVICEPROVIDER = 33
+  INFORMATIONABOUTSUPPLIERSANDTARIFFSFORUTILITIES = 34
+  INFORMATIONABOUTTHECOSTOFWORKPERFORMED = 35
+  INFORMATIONABOUTTHEMEANSTOOVERHAUL = 36
+  INFORMATIONONCONDUCTINGMEETINGS = 37
 
   def self.load_from_xlsx
     House.delete_all
@@ -82,7 +86,10 @@ class House < ActiveRecord::Base
       attr_info += "<b>#{I18n.t('house_attribute.coldwaterserviceprovider')}:</b> #{table_houses.cell(row_num, COLDWATERSERVICEPROVIDER)}<br/>"
       attr_info += "<b>#{I18n.t('house_attribute.wastewater')}:</b> #{table_houses.cell(row_num, WASTEWATER)}<br/>"
       attr_info += "<b>#{I18n.t('house_attribute.wastewaterserviceprovider')}:</b> #{table_houses.cell(row_num, WASTEWATERSERVICEPROVIDER)}<br/>"
-
+      attr_info += "<b>#{I18n.t('house_attribute.informationaboutsuppliersandtariffsforutilities')}:</b> <a target='_blank' href='#{table_houses.cell(row_num, INFORMATIONABOUTSUPPLIERSANDTARIFFSFORUTILITIES)}'>смотреть/скачать</a><br/>"
+      attr_info += "<b>#{I18n.t('house_attribute.informationaboutthecostofworkperformed')}:</b> <a target='_blank' href='#{table_houses.cell(row_num, INFORMATIONABOUTTHECOSTOFWORKPERFORMED)}'>смотреть/скачать</a><br/>"
+      attr_info += "<b>#{I18n.t('house_attribute.informationaboutthemeanstooverhaul')}:</b> <a target='_blank' href='#{table_houses.cell(row_num, INFORMATIONABOUTTHEMEANSTOOVERHAUL)}'>смотреть/скачать</a><br/>"
+      attr_info += "<b>#{I18n.t('house_attribute.informationonconductingmeetings')}:</b> <a target='_blank' href='#{table_houses.cell(row_num, INFORMATIONONCONDUCTINGMEETINGS)}'>смотреть/скачать</a>"
 
       House.create(address: attr_address, info: attr_info)
 
