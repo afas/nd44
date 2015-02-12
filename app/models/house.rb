@@ -44,6 +44,8 @@ class House < ActiveRecord::Base
   INFORMATIONABOUTTHECOSTOFWORKPERFORMED = 35
   INFORMATIONABOUTTHEMEANSTOOVERHAUL = 36
   INFORMATIONONCONDUCTINGMEETINGS = 37
+  TARIFFS = 38
+  CONTRACTSFORTHEUSEOFCOMMONPROPERTY = 39
 
   def self.load_from_xlsx
     House.delete_all
@@ -89,7 +91,9 @@ class House < ActiveRecord::Base
       attr_info += "<b>#{I18n.t('house_attribute.informationaboutsuppliersandtariffsforutilities')}:</b> <a target='_blank' href='#{table_houses.cell(row_num, INFORMATIONABOUTSUPPLIERSANDTARIFFSFORUTILITIES)}'>смотреть/скачать</a><br/>"
       attr_info += "<b>#{I18n.t('house_attribute.informationaboutthecostofworkperformed')}:</b> <a target='_blank' href='#{table_houses.cell(row_num, INFORMATIONABOUTTHECOSTOFWORKPERFORMED)}'>смотреть/скачать</a><br/>"
       attr_info += "<b>#{I18n.t('house_attribute.informationaboutthemeanstooverhaul')}:</b> <a target='_blank' href='#{table_houses.cell(row_num, INFORMATIONABOUTTHEMEANSTOOVERHAUL)}'>смотреть/скачать</a><br/>"
-      attr_info += "<b>#{I18n.t('house_attribute.informationonconductingmeetings')}:</b> <a target='_blank' href='#{table_houses.cell(row_num, INFORMATIONONCONDUCTINGMEETINGS)}'>смотреть/скачать</a>"
+      attr_info += "<b>#{I18n.t('house_attribute.informationonconductingmeetings')}:</b> <a target='_blank' href='#{table_houses.cell(row_num, INFORMATIONONCONDUCTINGMEETINGS)}'>смотреть/скачать</a><br/>"
+      attr_info += "<b>#{I18n.t('house_attribute.tariffs')}:</b> <a target='_blank' href='#{table_houses.cell(row_num, TARIFFS)}'>смотреть/скачать</a><br/>"
+      attr_info += "<b>#{I18n.t('house_attribute.contractsfortheuseofcommonproperty')}:</b> <a target='_blank' href='#{table_houses.cell(row_num, CONTRACTSFORTHEUSEOFCOMMONPROPERTY)}'>смотреть/скачать</a>"
 
       House.create(address: attr_address, info: attr_info)
 
