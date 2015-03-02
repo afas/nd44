@@ -7,6 +7,7 @@ class House < ActiveRecord::Base
 
   FILE_NAME = "houses"
   ROW_DATA_BEGIN = 2
+
   NUMBERPP = 1
   HOUSE_ADDRESS = 2
   YEARBUILT = 3
@@ -46,6 +47,8 @@ class House < ActiveRecord::Base
   INFORMATIONONCONDUCTINGMEETINGS = 37
   TARIFFS = 38
   CONTRACTSFORTHEUSEOFCOMMONPROPERTY = 39
+  STANDARDSOFCONSUMPTIONOFUTILITIES = 40
+  DATEOFCOMMENCEMENTOFSERVICE = 41
 
   def self.load_from_xlsx
     House.delete_all
@@ -93,7 +96,8 @@ class House < ActiveRecord::Base
       attr_info += "<b>#{I18n.t('house_attribute.informationaboutthemeanstooverhaul')}:</b> <a target='_blank' href='#{table_houses.cell(row_num, INFORMATIONABOUTTHEMEANSTOOVERHAUL)}'>смотреть/скачать</a><br/>"
       attr_info += "<b>#{I18n.t('house_attribute.informationonconductingmeetings')}:</b> <a target='_blank' href='#{table_houses.cell(row_num, INFORMATIONONCONDUCTINGMEETINGS)}'>смотреть/скачать</a><br/>"
       attr_info += "<b>#{I18n.t('house_attribute.tariffs')}:</b> <a target='_blank' href='#{table_houses.cell(row_num, TARIFFS)}'>смотреть/скачать</a><br/>"
-      attr_info += "<b>#{I18n.t('house_attribute.contractsfortheuseofcommonproperty')}:</b> <a target='_blank' href='#{table_houses.cell(row_num, CONTRACTSFORTHEUSEOFCOMMONPROPERTY)}'>смотреть/скачать</a>"
+      attr_info += "<b>#{I18n.t('house_attribute.standardsofconsumptionofutilities')}:</b> <a target='_blank' href='#{table_houses.cell(row_num, STANDARDSOFCONSUMPTIONOFUTILITIES)}'>смотреть/скачать</a><br/>"
+      attr_info += "<b>#{I18n.t('house_attribute.dateofcommencementofservice')}:</b> #{table_houses.cell(row_num, DATEOFCOMMENCEMENTOFSERVICE)}"
 
       House.create(address: attr_address, info: attr_info)
 
